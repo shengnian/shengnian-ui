@@ -63,7 +63,10 @@ if (project.globals.__COVERAGE__) {
   karmaConfig.webpack.module.rules.push({
     test    : /\.(js|jsx)$/,
     enforce: 'pre',
-    include : new RegExp(project.dir_client),
+    include : [
+      new RegExp(project.dir_client),
+      new RegExp(project.dir_docs)
+    ],
     exclude : /node_modules/,
     loader  : 'babel-loader',
     query   : Object.assign({}, project.compiler_babel, {

@@ -275,7 +275,7 @@ if (!__DEV__) {
         return /css-loader/.test(name.split('?')[0])
       })
   ).forEach((rule) => {
-    debug('==========================: %O', rule)
+    // debug('==========================: %O', rule)
     let loaders = []
     if (typeof rule.use === 'object') {
       loaders.push(rule.use.loader)
@@ -283,9 +283,9 @@ if (!__DEV__) {
       loaders.push(rule.use)
     }
     const first = loaders[0]
-    debug('first use:' + first)
+    // debug('first use:' + first)
     const rest = loaders.slice(1)
-    debug('rest use: ' + rest)
+    // debug('rest use: ' + rest)
     rule.loader = ExtractTextPlugin.extract({
       fallbackLoader: first,
       loader: rest.join('!')
